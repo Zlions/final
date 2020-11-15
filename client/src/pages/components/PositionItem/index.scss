@@ -1,0 +1,86 @@
+@import "../../../styleVarirable.scss";
+.job_primary {
+    padding-top: 30px;
+    padding-right: 0;
+    height: 48px;
+    color: #4a4160;
+    padding: 20px 0 19px;
+    margin: 0 30px;
+    @include clearFloat;
+    .info_primary {
+        width: 500px;
+        float: left;
+        .name {
+            font-size: 0;
+            font-weight: 400;
+            height: 26px;
+            line-height: 26px;
+            white-space: nowrap;
+            overflow: hidden;
+            .title_box {
+                height: 26px;
+                white-space: nowrap;
+                display: inline-block;
+                line-height: 26px;
+                .job_title {
+                    max-width: 192px;
+                    font-size: 16px;
+                    color: #00c2b3;
+                    font-weight: 400;
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .job_area {
+                    display: inline-block;
+                    color: #00c2b3;
+                    font-size: 16px;
+                    max-width: 200px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    margin-left: 10px;
+                }
+
+            }
+        }
+        p {
+            font-size: 14px;
+            color: #61687c;
+            margin-top: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            .red {
+                font-size: 16px;
+                margin-right: 16px;
+                color: #fc703e !important;
+            }
+        }
+    }
+    .info_publis {
+        width: 294px;
+        float: right;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: right;
+        .pub_name {
+            font-size: 14px;
+            height: 50px;
+            line-height: 50px;
+            white-space: nowrap;
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: 400;
+            img {
+                width: 20px;
+                height: 20px;
+                border-radius: 40px;
+                vertical-align: middle;
+                margin: -3px 10px 0 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+@import '../../../styleVarirable.scss';
+.slider {
+    width: 284px;
+    float: right;
+    .slider_list {
+        background-color: #fff;
+        margin-bottom: 16px;
+        h3 {
+            margin: 0;
+            padding: 0;
+            height: 45px;
+            line-height: 45px;
+            font-size: 15px;
+            color: #54cbc4;
+            font-weight: 400;
+            padding-left: 30px;
+            border-bottom: 2px solid #f2f2f5;
+        }
+        p {
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: #a9a9aa;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                margin: 0 30px;
+                border-bottom: 1px solid #eef0f5;
+                padding: 8px 0 2px 0;
+                box-sizing: content-box;
+                @include overFont;
+                a {
+                    color: #414a60;
+                    &:hover {
+                        h4 {
+                            color: #00d7c6;
+                        }
+                    }
+                    h4 {
+                        padding: 0;
+                        margin: 0;
+                        font-weight: 400;
+                        font-size: 15px;
+                        padding-right: 90px;
+                        position: relative;
+                        @include overFont;
+                        position: relative;
+                        transition: all 0.3s;
+                        .red {
+                            color: #fc6f38;
+                            position: absolute;
+                            right: 0;
+                        }
+                    }
+                    p {
+                        line-height: 32px;
+                        color: #8d92a1;
+                        font-size: 12px;
+                        padding: 0;
+                        margin: 0;
+                        height: 22px;
+                        margin-bottom: 6px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

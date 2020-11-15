@@ -1,0 +1,37 @@
+@import "../../../styleVarirable.scss";
+.promotion_item {
+    @include clearFloat;
+    .company_logo {
+        padding-top: 20px;
+        float: right;
+        width: 62px;
+        vertical-align: top;
+        margin-left: 23px;
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            border: 1px solid #f2f5fa;
+        }
+    }
+    .info_primary {
+        .name {
+            font-size: 15px;
+            color: #424a5e;
+            padding: 20px 0 12px;
+            a {
+                color: #424a5e;
+                .red {
+                    margin-left: 8px;
+                    color: #fc703e !important;
+                }
+            }
+        }
+        .gray {
+            color: #9fa3af;
+            a {
+                color: #9fa3af;
+            }
+        }
+    }
+}

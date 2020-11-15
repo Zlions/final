@@ -1,13 +1,19 @@
-import React from 'react';
-import styles from './index.css';
+import React from "react";
+import style from "./index.scss";
+import HeaderLayout from "./components/Header";
+
 
 const BasicLayout: React.FC = props => {
-  return (
-    <div className={styles.normal}>
-      <h1 className={styles.title}>Yay! Welcome to umi!</h1>
-      {props.children}
-    </div>
-  );
+    return (
+        <div>
+            <div className={style.header}>
+                <HeaderLayout />
+            </div>
+            <div className={style.content}>
+                {props.children}
+            </div>
+        </div>
+    );
 };
 
 export default BasicLayout;
