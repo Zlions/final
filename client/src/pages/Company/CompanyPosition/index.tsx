@@ -1,6 +1,6 @@
+import HaveSee from '@/pages/components/HaveSee';
+import PositionItem from '@/pages/components/PositionItem';
 import React from "react";
-import HaveSee from "../components/HaveSee";
-import PositionItem from "../components/PositionItem";
 import style from "./index.scss";
 
 const CompanySummarize: React.FC = props => {

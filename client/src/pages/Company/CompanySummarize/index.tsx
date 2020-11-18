@@ -1,10 +1,10 @@
 import React from "react";
-import JobSec from "../components/JobSec";
 import style from "./index.scss";
-import icon from "../../iconfont.scss";
+import icon from "@/iconfont.scss";
 import { Carousel } from "antd";
+import JobSec from '@/pages/components/JobSec';
 
-const CompanySummarize = () => {
+const CompanySummarize:React.FC = () => {
     return (
         <>
             <div className={style.company_hotjob}>

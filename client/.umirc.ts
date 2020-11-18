@@ -13,7 +13,7 @@ const config: IConfig = {
       component: '../layouts/index',
       routes: [
         { path: '/', component: '../pages/index' },
-        { path: '/company', component: '../pages/Company' },
+        { path: '/company_list', component: '../pages/CompanyList' },
         {
           path: '/job_list',
           component: '../pages/JobList',
@@ -21,10 +21,10 @@ const config: IConfig = {
         { path: '/job_list/:id', component: '../pages/JobListItem' },
         {
           path: '/company/:id',
-          component: '../pages/CompanyItem',
+          component: '../pages/Company',
           routes: [
-            { path: '/company/:id/', component: '../pages/CompanySummarize' },
-            { path: '/company/:id/position', component: '../pages/CompanyPosition' },
+            { path: '/company/:id/', component: '../pages/Company/CompanySummarize' },
+            { path: '/company/:id/position', component: '../pages/Company/CompanyPosition' },
           ],
         },
       ],
