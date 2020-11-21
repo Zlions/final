@@ -1,0 +1,124 @@
+@import '@/styleVarirable.scss';
+.header {
+    height: 53px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.13);
+    min-width: 1180px;
+    .boss_v {
+        width: 160px;
+        height: 53px;
+        line-height: 53px;
+        text-align: center;
+        font-size: 20px;
+        color: #fff;
+        font-weight: 200;
+        background: #18c3b1;
+        float: left;
+    }
+    .inner {
+        width: calc(100% - 200px);
+        min-width: 1020px;
+        float: left;
+        height: 53px;
+        .user_info {
+            float: right;
+            line-height: 53px;
+            color: #434343;
+            position: relative;
+            margin-right: 50px;
+            img {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                margin-left: 15px;
+            }
+            .info_name {
+                font-size: 16px;
+                font-weight: 400;
+                margin-left: 15px;
+                vertical-align: middle;
+            }
+            i {
+                display: inline-block;
+                vertical-align: middle;
+                color: #000;
+                padding-top: 3px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .have_msg {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: red;
+                position: absolute;
+                top: 21px;
+                left: 10px;
+            }
+        }
+    }
+}
+.content {
+    width: 100%;
+    height: calc(100% - 53px);
+    min-width: 1180px;
+    @include clearFloat;
+    .side_menu {
+        width: 160px;
+        height: 100%;
+        float: left;
+        background: #252830;
+        padding: 25px 2px 0px;
+        .avator {
+            padding-bottom: 15px;
+            text-align: center;
+            img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+            p {
+                font-size: 14px;
+                color: #fff;
+                text-align: center;
+                font-weight: 200;
+                margin-top: 20px;
+            }
+        }
+        .menu {
+            width: 100%;
+            padding-top: 20px;
+            text-align: left;
+            li {
+                padding: 15px 15px;
+                color: rgb(98, 103, 111);
+                i {
+                    font-size: 17px;
+                    margin-left: 10px;
+                }
+                span {
+                    font-size: 14px;
+                    margin-left: 10px;
+                }
+                &:hover,
+                &.cur {
+                    background-color: rgb(33, 37, 44);
+                    i {
+                        color: rgb(121, 101, 195);
+                    }
+                    span {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .main {
+        width: calc(100% - 160px);
+        min-width: 1020px;
+        float: left;
+        height: 100%;
+        background-color: #eef0f5;
+    }
+}

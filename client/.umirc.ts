@@ -9,8 +9,12 @@ const config: IConfig = {
       component: '../pages/Login',
     },
     {
+      path: '/boss',
+      component: '../layouts/Boss'
+    },
+    {
       path: '/',
-      component: '../layouts/index',
+      component: '../layouts/User/index',
       routes: [
         { path: '/', component: '../pages/index' },
         { path: '/company_list', component: '../pages/CompanyList' },

@@ -1,4 +1,4 @@
-@import "../../../styleVarirable.scss";
+@import '../../../styleVarirable.scss';
 
 .sub_li {
     height: 130px;
@@ -15,13 +15,13 @@
         }
     }
     .job_info {
-        display: inline-block;
+        display: block;
         width: 100%;
         color: #414a60;
+        position: relative;
         .sub_li_top {
             color: #3f3f41;
-            @include clearFloat;
-            height: 20px;
+            height: 25px;
             .name {
                 @include overFont;
                 float: left;
@@ -30,7 +30,7 @@
             }
             .chat {
                 float: left;
-                color:$main_font_color;
+                color: $main_font_color;
                 margin-top: 4px;
             }
             .salary {
@@ -38,7 +38,6 @@
                 font-size: 15px;
                 color: #fd7240;
                 line-height: normal;
-                flex: 1;
                 text-align: right;
             }
         }
@@ -46,6 +45,7 @@
             font-size: 13px;
             color: #8d92a1;
             line-height: 28px;
+            text-align: left;
         }
     }
     .sub_li_bottom {
@@ -75,7 +75,6 @@
                 max-width: 90px;
                 @include overFont;
             }
-            
         }
     }
 }

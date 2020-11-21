@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./index.scss";
-import icon from "../../../iconfont.scss";
+import icon from "@/iconfont.scss";
 
 const HeaderLayout: React.FC = () => {
     return (
