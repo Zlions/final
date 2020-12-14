@@ -2,9 +2,7 @@
 
 # dependencies
 /node_modules
-/npm-debug.log*
-/yarn-error.log
-/yarn.lock
+/dist
 /package-lock.json
 
 # production
