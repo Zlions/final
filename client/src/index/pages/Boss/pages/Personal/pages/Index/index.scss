@@ -1,0 +1,95 @@
+@import '@/globalStyle.scss';
+.means {
+    .item {
+        .profile_title {
+            height: 69px;
+            color: rgb(65, 74, 96);
+            font-size: 16px;
+            line-height: 70px;
+            margin: 0px 40px;
+            span {
+                color: rgb(0, 194, 179);
+                font-size: 14px;
+                float: right;
+            }
+        }
+        .profile_item {
+            .item_primary {
+                padding-top: 15px;
+                position: relative;
+                margin: 0px 40px;
+                border-top: 1px solid rgb(236, 237, 239);
+                .avator {
+                    position: absolute;
+                    right: 0px;
+                    top: 30px;
+                    cursor: pointer;
+                    z-index: 10;
+                    img {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 100%;
+                    }
+                }
+                .row {
+                    @include clearFloat;
+                    a {
+                        color: rgb(0, 215, 198);
+                        transition: all 0.2s ease 0s;
+                        position: relative;
+                        z-index: 1;
+                        float: right;
+                        line-height: 42px;
+                    }
+                    .t {
+                        width: 74px;
+                        text-align: right;
+                        float: left;
+                        color: rgb(159, 163, 176);
+                        vertical-align: top;
+                        font-size: 14px;
+                        line-height: 42px;
+                    }
+                    .c {
+                        margin-left: 72px;
+                        color: rgb(65, 74, 96);
+                        font-size: 14px;
+                        position: relative;
+                        line-height: 42px;
+                    }
+                }
+                .company_container {
+                    max-height: 290px;
+                    overflow: auto;
+                    border-radius: 8px;
+                    li {
+                        min-height: 98px;
+                        padding: 17px 30px;
+                        .img_wrapper {
+                            float: left;
+                            width: 60px;
+                            height: 60px;
+                            padding-top: 3px;
+                            border-radius: 8px;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 8px;
+                            }
+                        }
+                        .text {
+                            margin-left: 80px;
+                            .name {
+                                margin-top: 5px;
+                            }
+                            .gray {
+                                margin-top: 7px;
+                                color: #9fa3b0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+.base_info {
+    h4 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    .sub_title {
+        color: #8d92a1;
+        font-size: 13px;
+    }
+    form {
+        .form_item {
+            display: flex;
+            padding: 10px 0;
+            .item_label {
+                align-self: center;
+                color: #9fa3af;
+                padding-right: 20px;
+                width: 86px;
+                text-align: right;
+                line-height: 34px;
+                box-sizing: content-box;
+            }
+            .item_content {
+                flex: 1;
+                .upd_box {
+                    width: 90px;
+                    height: 90px;
+                    background: rgba(238, 240, 245, 1);
+                    border-radius: 6px;
+                    position: relative;
+                    line-height: 90px;
+                    text-align: center;
+                    border: solid 1px #e3e7ed;
+                    margin-top: 10px;
+                    overflow: hidden;
+                    i {
+                        font-size: 24px;
+                        color: #e3e7ed;
+                    }
+                }
+                .ipt_wrap {
+                    position: relative;
+                    display: inline-block;
+                    input {
+                        padding: 5px 12px 5px 7px;
+                        min-height: 22px;
+                        line-height: 22px;
+                        border: 1px solid #e3e7ed;
+                        vertical-align: middle;
+                        min-width: 300px;
+                        outline: none;
+                        &.disabled {
+                            background-color: #f7f7f7;
+                        }
+                        &:hover {
+                            border-color: #2cd7c8;
+                        }
+                    }
+                }
+            }
+        }
+        .form_btns {
+            padding: 20px 0 0 86px;
+            padding-left: 318px;
+            button {
+                margin-right: 0;
+                display: inline-block;
+                padding: 0 30px;
+                line-height: 32px;
+                background-color: #5dd5c8;
+                border: 1px solid #5dd5c8;
+                color: #fff;
+                font-size: 14px;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        }
+    }
+}

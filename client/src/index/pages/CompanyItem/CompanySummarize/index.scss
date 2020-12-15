@@ -1,0 +1,135 @@
+@import "@/globalStyle.scss";
+.company_hotjob {
+    padding: 25px 0 18px;
+    overflow: hidden;
+    min-width: 1190px;
+    .inner {
+        width: 1190px;
+        margin: 0 auto;
+        h3 {
+            font-weight: 400;
+            font-size: 16px;
+            padding-bottom: 20px;
+            a {
+                float: right;
+                font-size: 14px;
+                color: #9fa3b0;
+                background-position: right -1581px;
+                margin-right: -10px;
+                font-weight: 400;
+            }
+        }
+        ul {
+            font-size: 0;
+            white-space: nowrap;
+            li {
+                display: inline-block;
+                font-size: 14px;
+                margin-right: 26px;
+                a {
+                    display: block;
+                    width: 342px;
+                    padding: 19px 20px 17px;
+                    box-sizing: content-box;
+                    border: 1px #fff solid;
+                    background: #fff;
+                    .info_primary {
+                        .name {
+                            padding-bottom: 10px;
+                            box-sizing: content-box;
+                            span {
+                                color: #fc703e;
+                                float: right;
+                                font-size: 16px;
+                            }
+                            b {
+                                font-weight: 400;
+                                font-size: 16px;
+                                display: block;
+                                max-width: 226px;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                        p {
+                            color: #9fa3af;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.job_box {
+    margin-top: 30px;
+    min-width: 1190px;
+    background-color: #fff;
+    .inner {
+        width: 1190px;
+        margin: 0 auto;
+        @include clearFloat;
+        .job_detail {
+            float: left;
+            width: 836px;
+            margin-right: 0;
+            .detail_content {
+                position: relative;
+                padding-right: 25px;
+                border-right: 1px #f5f7f9 solid;
+                min-height: 813px;
+            }
+        }
+        .slider {
+            float: right;
+            width: 284px;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.carousel {
+    width: 298px;
+    height: 165px;
+}
+
+.recruiter_list {
+    padding-top: 13px;
+    padding-bottom: 10px;
+    box-sizing: content-box;
+    li {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px #f5f7f9 solid;
+        @include clearFloat;
+        .figure {
+            width: 60px;
+            height: 60px;
+            float: left;
+            img {
+                display: block;
+                width: 60px;
+                height: 60px;
+                border-radius: 100%;
+            }
+        }
+        .info_text {
+            color: #61687c;
+            line-height: 36px;
+            margin-left: 80px;
+            .info {
+                line-height: 24px;
+                font-size: 16px;
+                padding-bottom: 5px;
+                .info_name {
+                    display: inline-block;
+                }
+            }
+            .gray {
+                line-height: 28px;
+                color: #61687c;
+                font-size: 14px;
+            }
+        }
+    }
+}

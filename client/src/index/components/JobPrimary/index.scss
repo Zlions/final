@@ -1,0 +1,165 @@
+@import "@/globalStyle.scss";
+.job_primary {
+    height: 130px;
+    width: 824px;
+    margin: 0 auto;
+    position: relative;
+    &:hover {
+        .info_primary {
+            .primary_wrapper {
+                .job_limit {
+                    .chat {
+                        color: #00c2b3;
+                    }
+                }
+            }
+        }
+    }
+    .info_primary {
+        height: 70px;
+        padding-top: 20px;
+        @include clearFloat;
+        .primary_wrapper {
+            float: left;
+            font-size: 16px;
+            width: 406px;
+            .job_title {
+                color: #00c2b3;
+                font-weight: 400;
+                display: inline-block;
+                @include overFont;
+                vertical-align: middle;
+                line-height: 26px;
+                @include clearFloat;
+                .job_name {
+                    font-size: 16px;
+                    @include overFont;
+                    float: left;
+                    max-width: 171px;
+                    margin-right: 10px;
+                    display: block;
+                    a {
+                        color: #00c2b3;
+                    }
+                }
+                .job_area {
+                    margin-right: 10px;
+                    float: left;
+                }
+            }
+            .job_limit {
+                height: 26px;
+                overflow: hidden;
+                .red {
+                    color: #fc703e;
+                    height: 26px;
+                    line-height: 26px;
+                    position: relative;
+                    vertical-align: middle;
+                    float: left;
+                }
+                p {
+                    float: left;
+                    font-size: 14px;
+                    margin-right: 13px;
+                    margin-left: 13px;
+                    line-height: 26px;
+                    max-width: 169px;
+                    color: #61687c;
+                    @include overFont;
+                }
+                .chat {
+                    font-weight: 400;
+                    height: 26px;
+                    line-height: 26px;
+                    font-size: 14px;
+                    max-width: 150px;
+                    color: #6c7388;
+                    float: left;
+                    transition: all 0.2s;
+                    i {
+                        margin-left: 10px;
+                        font-size: 12px;
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+        .info_company {
+            width: 350px;
+            float: right;
+            @include clearFloat;
+            .company_text {
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 5px;
+                .name {
+                    font-size: 16px;
+                    margin: 0;
+                    padding: 0;
+                    font-weight: 400;
+                    margin-bottom: 3px;
+                    color: #00c2b3;
+                    @include overFont;
+                    max-width: 255px;
+                }
+                p {
+                    color: #61687c;
+                    max-width: 270px;
+                    margin-top: 6px;
+                    @include overFont;
+                    font-size: 12px;
+                }
+            }
+            .company_logo {
+                float: right;
+                width: 54px;
+                height: 54px;
+                border: 1px solid #f3f5fb;
+                border-radius: 9px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 9px;
+                }
+            }
+        }
+    }
+    .info_append {
+        height: 40px;
+        width: 100%;
+        line-height: 40px;
+        box-sizing: content-box;
+        padding: 0 30px;
+        background-color: #f8f9fc;
+        position: absolute;
+        left: -30px;
+        bottom: 0;
+        @include clearFloat;
+        .tags {
+            float: left;
+            width: 389px;
+            height: 40px;
+            @include overFont;
+            .tag_item {
+                font-size: 12px;
+                height: 21px;
+                line-height: 21px;
+                padding: 0 8px;
+                border: 1px solid #eee;
+                border-radius: 2px;
+                display: inline-block;
+                margin-right: 10px;
+                margin-top: 9px;
+                color: #61687c;
+            }
+        }
+        .info_desc {
+            font-size: 13px;
+            float: right;
+            width: 350px;
+            @include overFont;
+            color: #61687c;
+        }
+    }
+}

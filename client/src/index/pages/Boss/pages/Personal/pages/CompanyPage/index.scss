@@ -1,0 +1,51 @@
+@import "@/globalStyle.scss";
+.page_content {
+    height: calc(100% - 65px);
+    margin-top: 10px;
+    display: flex;
+    .company_side {
+        width: 332px;
+        padding: 30px 40px;
+        background-color: #f8f9fc;
+        border-right: 1px #e3e7ed solid;
+        min-height: calc(100%);
+        h3 {
+            line-height: 30px;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .company_tab {
+            margin-top: 10px;
+            a {
+                display: flex;
+                position: relative;
+                height: 50px;
+                padding: 0 40px;
+                margin: 0 -40px;
+                line-height: 50px;
+                color: #414a60;
+                &.active {
+                    background-color: #e3e7ed;
+                }
+                .text {
+                    flex: 1;
+                }
+                .op {
+                    margin-right: -4px;
+                    i {
+                        display: inline-block;
+                        width: 14px;
+                        color: #b8bac4;
+                    }
+                }
+            }
+        }
+    }
+    .company_content {
+        flex: 1;
+        background-color: #fff;
+        padding: 0px 40px 30px;
+        width: 1px;
+        flex-grow: 1;
+    }
+}

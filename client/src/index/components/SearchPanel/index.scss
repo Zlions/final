@@ -1,0 +1,206 @@
+@import "@/globalStyle.scss";
+
+.search_panel {
+    .search_box {
+        @include clearFloat;
+        width: 940px;
+        margin: 0 auto;
+        padding-top: 20px;
+        font-size: 13px;
+        position: relative;
+        .search_form {
+            @include clearFloat;
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.13);
+            float: left;
+            transition: all linear 0.1s;
+            border: 1px solid #fff;
+            &:hover {
+                border-color: #53cac3;
+                border-right-color: #fff;
+            }
+            .position_sel {
+                width: 130px;
+                box-sizing: content-box;
+                float: left;
+                border: 1px solid #53cac3;
+                padding-top: 9px;
+                border-color: #fff;
+                border-left: 1px solid #fff;
+                padding-bottom: 11px;
+                height: 28px;
+                background-color: #fff;
+                position: relative;
+                cursor: pointer;
+                .label_text {
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    display: inline-block;
+                    line-height: 30px;
+                    text-align: center;
+                    font-size: 16px;
+                    text-overflow: ellipsis;
+                    font-weight: 400;
+                    color: #61687c;
+                    cursor: pointer;
+                    margin: 0 auto;
+                    position: relative;
+                    .up_down {
+                        margin-left: 10px;
+                        font-size: 10px;
+                        display: inline-block;
+                        position: absolute;
+                        right: 0px;
+                        top: 0px;
+                        transform: scale(0.5);
+                    }
+                }
+                .select_tree {
+                    position: absolute;
+                    left: -2px;
+                    top: 100%;
+                    width: 498px;
+                    height: 250px;
+                    z-index: 99;
+                    color: #8d92a1;
+                    @include clearFloat;
+                    ul {
+                        float: left;
+                        list-style: none;
+                        height: 100%;
+                        overflow: auto;
+                        width: 166px;
+                        padding-left: 0;
+                        background-color: #fff;
+                        box-shadow: 0px 8px 6px 4px rgba(0, 0, 0, 0.07);
+                        &::-webkit-scrollbar {
+                            width: 4px;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            height: 50px;
+                            background-color: #d1d4db;
+                            border-radius: 5px;
+                        }
+                        li {
+                            box-sizing: content-box;
+                            line-height: 42px;
+                            padding: 0 15px;
+                            text-align: left;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            &.act {
+                                background-color: #f2f5f9;
+                            }
+                            a {
+                                color: #8d92a1;
+                            }
+                        }
+                    }
+                }
+            }
+            .search_input {
+                height: 28px;
+                width: 626px;
+                font-size: 16px;
+                padding: 9px 19px;
+                line-height: 30px;
+                float: left;
+                border: none;
+                border: 1px solid #fff;
+                box-sizing: content-box;
+                outline: none;
+                color: #414a60;
+                &::-webkit-input-placeholder {
+                    color: #a5aec0;
+                }
+            }
+        }
+        .search_btn {
+            height: 52px;
+            line-height: 48px;
+            background-image: none;
+            font-size: 16px;
+            width: 140px;
+            background-color: #55cbc4;
+            border: none;
+            outline: none;
+            color: #fff;
+            transition: all linear 0.1s;
+            text-align: center;
+            box-sizing: border-box;
+            cursor: pointer;
+            letter-spacing: 1px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            float: left;
+            &:hover {
+                background-color: #6adbcf;
+            }
+        }
+        .position_box {
+            display: none;
+
+            width: 168px;
+            position: absolute;
+            top: 72px;
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.13);
+            left: -1px;
+            color: #8d92a1;
+            .dropDown_menu {
+                @include ulReset;
+                width: 166px;
+                max-height: 250px;
+                height: 250px;
+                border: 1px solid #e3e7ed;
+                border-top: none;
+                background-color: #fff;
+                list-style: none;
+                li {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    line-height: 42px;
+                    padding: 0 15px;
+                    cursor: pointer;
+                    text-align: center;
+                    &:hover {
+                        background-color: #f2f5f9;
+                    }
+                }
+            }
+        }
+    }
+    .hot_search {
+        @include clearFloat;
+        width: 940px;
+        margin: 0 auto;
+        height: 41px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        padding: 9px 0 26px 0;
+        font-size: 13px;
+        color: #9fa3b0;
+        overflow: hidden;
+        b {
+            font-weight: 400;
+            float: left;
+        }
+        ul {
+            @include clearFloat;
+            @include ulReset;
+            list-style: none;
+            float: left;
+            width: 718px;
+            height: 16px;
+            margin-left: 22px;
+            overflow: hidden;
+            li {
+                float: left;
+                margin-right: 22px;
+                color: #00c2b3;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -3,18 +3,25 @@ const path = require('path')
 module.exports = {
     entry: {
         index: './src/index',
-        demo: './src/demo'
+        login: './src/Login',
+        register: './src/Register',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/',
         filename: '[name].bundle.js'
     },
     resolve: {
-        extensions: ['.mjs', '.js', '.json', '.jsx']
+        extensions: ['.mjs', '.js', '.json', '.jsx', '.tsx', '.ts'],
+        alias: {
+            '@': path.resolve(__dirname, 'src'),
+            '~': path.resolve(__dirname)
+        }
     },
     devServer: {
         contentBase: path.join(__dirname, './src/'),
         publicPath: '/',
+        historyApiFallback: true,
         port: 3000,
         hot: true,
         stats: {
@@ -42,9 +49,34 @@ module.exports = {
                 }
             },
             {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: 'ts-loader'
+            },
+            {
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true
+                    }
+                }, 'postcss-loader', 'sass-loader']
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -56,8 +88,13 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            filename: 'demo.html',
-            chunks: ['demo']
+            filename: 'login.html',
+            chunks: ['login']
+        }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            filename: 'register.html',
+            chunks: ['register']
         }),
     ]
 }

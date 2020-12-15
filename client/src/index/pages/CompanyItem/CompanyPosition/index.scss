@@ -1,0 +1,60 @@
+@import "@/globalStyle.scss";
+.job_catagory {
+    padding: 20px 0 5px 30px;
+    background: #fff;
+    width: 1190px;
+    margin: 0 auto;
+    line-height: 40px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    .wrapper {
+        @include clearFloat;
+        width: 1190px;
+        .job_catagory_label {
+            float: left;
+            width: 90px;
+            white-space: nowrap;
+        }
+        .job_catagory_item {
+            margin-left: 90px;
+            a {
+                display: inline-block;
+                line-height: 40px;
+                margin: 0 50px 5px 0;
+                &:hover {
+                    color: #18c3b1;
+                }
+                &.cur {
+                    color: #18c3b1;
+                }
+            }
+        }
+    }
+}
+.inner {
+    width: 1190px;
+    margin: 0 auto;
+    margin-top: 18px;
+    @include clearFloat;
+    .job_list {
+        margin-right: 0;
+        min-height: 260px;
+        margin-bottom: 50px;
+        width: 884px;
+        float: left;
+        padding: 0;
+        ul {
+            li {
+                height: 112px;
+                background: #fff;
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+    .slider {
+        float: right;
+        width: 284px;
+    }
+}
