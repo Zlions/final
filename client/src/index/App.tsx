@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BossLayout from "./pages/Boss/Layout";
 
 const App: React.FC = () => {
+    console.log(localStorage.getItem('curUser'))
     return (
         <>
             <BrowserRouter>
@@ -13,7 +14,6 @@ const App: React.FC = () => {
                     <Route path="/" component={Layout}></Route>
                 </Switch>
             </BrowserRouter>
-            {/* <Layout /> */}
         </>
     );
 };

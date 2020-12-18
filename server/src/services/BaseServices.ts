@@ -6,7 +6,7 @@ import { msg } from "../utils/returnMsg";
 export abstract class BaseServices {
 	constructor(protected repository: Repository<any>) {}
 
-	protected abstract async recordValidationRule(newRecord: object);
+	protected abstract recordValidationRule(newRecord: object);
 
 	// 获取表中所有记录
 	public getRecords = async (req: Request, res: Response) => {

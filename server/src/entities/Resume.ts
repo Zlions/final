@@ -8,7 +8,7 @@ import {
 	Length,
 } from "class-validator";
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./User";
+import { UserReg } from "./UserReg";
 
 @Entity()
 export class Resume {
@@ -82,9 +82,9 @@ export class Resume {
 	@Type(() => String)
 	public certificate: string = '';
 
-	@OneToOne(type => User, {
+	@OneToOne(type => UserReg, {
 		eager: true
 	})
 	@JoinColumn()
-	public belongTo: User;
+	public belongTo: UserReg;
 }
