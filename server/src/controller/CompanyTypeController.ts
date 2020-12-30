@@ -1,26 +1,27 @@
-import { Application } from "express";
+import express, { Application, Router } from "express";
+import { TableInheritance } from "typeorm";
 import { CompanyTypeServices } from "../services/CompanyTypeServices";
 
 export class CompanyTypeController {
-	public companyTypeServices: CompanyTypeServices;
-	constructor(private app: Application) {
-		this.companyTypeServices = new CompanyTypeServices();
-		this.routes();
-	}
+    public companyTypeServices: CompanyTypeServices;
+    private router: Router = express.Router();
+    constructor(private app: Application) {
+        this.companyTypeServices = new CompanyTypeServices();
+        this.app.use("/api", this.routes());
+    }
 
-	public routes() {
-		this.app.route("/companyType").get(this.companyTypeServices.getRecords);
-		this.app
-			.route("/companyType/:id")
-			.get(this.companyTypeServices.getRecordById);
-		this.app
-			.route("/companyType")
-			.post(this.companyTypeServices.saveRecord);
-		this.app
-			.route("/companyType")
-			.delete(this.companyTypeServices.deleteRecordById);
-		this.app
-			.route("/companyType")
-			.put(this.companyTypeServices.updateRecord);
-	}
+    public routes() {
+        this.router.get("/companyType", this.companyTypeServices.getRecords);
+        this.router.get(
+            "/companyType/:id",
+            this.companyTypeServices.getRecordById
+        );
+        this.router.post("/companyType", this.companyTypeServices.saveRecord);
+        this.router.delete(
+            "/companyType",
+            this.companyTypeServices.deleteRecordById
+        );
+        this.router.put("/companyType", this.companyTypeServices.updateRecord);
+        return this.router;
+    }
 }

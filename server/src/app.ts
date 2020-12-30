@@ -8,22 +8,28 @@ import { CompanyController } from "./controller/CompanyController";
 import { ResumeController } from "./controller/ResumeController";
 import path from "path";
 import cors from "cors";
+import { PositionController } from "./controller/PositionController";
+import { SendRecordController } from "./controller/SendRecordController";
 
 class App {
     public app: Application;
-    public userController: UserRegController;
+    public userRegController: UserRegController;
     public companyTypeController: CompanyTypeController;
     public companyController: CompanyController;
     public resumeController: ResumeController;
+    public positionController: PositionController;
+    public sendRecordController: SendRecordController;
 
     constructor() {
         this.app = express();
         this.setConfig();
         this.setDBConnection().then((resp) => {
-            this.userController = new UserRegController(this.app);
+            this.userRegController = new UserRegController(this.app);
             this.companyTypeController = new CompanyTypeController(this.app);
             this.companyController = new CompanyController(this.app);
             this.resumeController = new ResumeController(this.app);
+            this.positionController = new PositionController(this.app);
+            this.sendRecordController = new SendRecordController(this.app);
         });
     }
 

@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import {
     IsEmail,
     IsNotEmpty,
@@ -10,12 +10,17 @@ import {
     MinLength,
 } from "class-validator";
 import * as bcrypt from "bcrypt";
-import { v4 as uuid } from "uuid";
+import {v4 as uuid} from 'uuid'
+import { Resume } from "./Resume";
+import { Company } from "./Company";
+import { SendRecord } from "./SendRecord";
 
 @Entity()
 export class UserReg {
-    @PrimaryGeneratedColumn()
-    public id: number; // 用户id 自增长
+    @PrimaryColumn({
+        type: 'varchar'
+    })
+    public id: string = uuid(); // 用户id 自增长
 
     @Column({ unique: true })
     @Length(2, 6)
@@ -47,9 +52,14 @@ export class UserReg {
     @Type(() => String)
     public email: string;
 
-    @Column()
-    @Type(() => String)
-    public uid: string = uuid();
+    @OneToOne(type => Resume, resume => resume.belongTo)
+    public resume: Resume;
+
+    @OneToMany(type => Company, company => company.owner)
+    companys: Company[]
+    
+    @OneToMany(type => SendRecord, SendRecord => SendRecord.userId)
+	sendRecord: SendRecord[]
 
     public async compare(password: string) {
         const result = await bcrypt.compare(password, this.pwdHash);

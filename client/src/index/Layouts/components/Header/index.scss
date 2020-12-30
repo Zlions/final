@@ -79,15 +79,59 @@
                 line-height: 49px;
                 margin-right: 16px;
             }
-            .btn {
-                height: 23px;
-                line-height: 23px;
-                padding: 3px 9px 3px 11px;
-                margin-left: 17px;
+            .user_name {
+                margin-right: 15px;
                 color: #fff;
-                border: 1px solid #5dd5c8;
-                border-radius: 15px;
-                font-size: 13px;
+            }
+            .options_btns {
+                float: right;
+                margin-top: 14px;
+                .btn {
+                    height: 23px;
+                    line-height: 23px;
+                    padding: 3px 9px 3px 11px;
+                    margin-left: 17px;
+                    color: #fff;
+                    border: 1px solid #5dd5c8;
+                    border-radius: 15px;
+                    font-size: 13px;
+                }
+            }
+
+            .avatar {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                float: right;
+                margin-top: 9px;
+                position: relative;
+                ul {
+                    position: absolute;
+                    top: 40px;
+                    right: 0;
+                    width: 152px;
+                    z-index: 100;
+                    height: 100px;
+                    background-color: #f2f5fa;
+                    li {
+                        padding: 10px 25px;
+                        line-height: 22px;
+                        color: #414a60;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        background: #fff;
+                        &:hover {
+                            background-color: #f2f5fa;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
             }
         }
     }

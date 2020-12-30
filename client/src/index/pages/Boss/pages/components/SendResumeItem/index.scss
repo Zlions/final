@@ -1,0 +1,38 @@
+.send_wrap {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    .send_title {
+        color: #18c3b1;
+        font-size: 18px;
+        padding-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        position: relative;
+        cursor: pointer;
+        letter-spacing: 2px;
+        span {
+            color: #b2b9b9;
+            margin-left: 10px;
+            font-size: 13px;
+            font-weight: normal ;
+        }
+        &::after {
+            content: "";
+            display: block;
+            width: 3px;
+            background-color: #18c3b1;
+            height: 24px;
+            position: absolute;
+            top: 14px;
+            left: -19px;
+        }
+    }
+    .person_wrap {
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+}

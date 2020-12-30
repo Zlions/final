@@ -12,9 +12,10 @@ const CompanyPage: React.FC = () => {
                 <h3>编辑公司资料</h3>
                 <div className={style.company_tab}>
                     <a
-                        href="/boss/personal/comPage/"
+                        href="/boss/personal/"
                         className={
-                            location.pathname === "/boss/personal/comPage/"
+                            location.pathname === "/boss/personal" ||
+                            location.pathname === "/boss/personal/"
                                 ? style.active
                                 : ""
                         }
@@ -25,9 +26,9 @@ const CompanyPage: React.FC = () => {
                         </div>
                     </a>
                     <a
-                        href="/boss/personal/comPage/intro/"
+                        href="/boss/personal/intro/"
                         className={
-                            location.pathname === "/boss/personal/comPage/intro/"
+                            location.pathname === "/boss/personal/intro/"
                                 ? style.active
                                 : ""
                         }
@@ -37,7 +38,7 @@ const CompanyPage: React.FC = () => {
                             <i className={icon.iconfont}>&#xe601;</i>
                         </div>
                     </a>
-                    <a href="/">
+                    {/* <a href="/">
                         <div className={style.text}>公司福利</div>
                         <div className={style.op}>
                             <i className={icon.iconfont}>&#xe601;</i>
@@ -48,21 +49,17 @@ const CompanyPage: React.FC = () => {
                         <div className={style.op}>
                             <i className={icon.iconfont}>&#xe601;</i>
                         </div>
-                    </a>
+                    </a> */}
                 </div>
             </div>
             <div className={style.company_content}>
                 <Switch>
                     <Route
-                        path="/boss/personal/comPage/intro"
+                        path="/boss/personal/intro"
                         exact
                         component={Intro}
                     />
-                    <Route
-                        path="/boss/personal/comPage/"
-                        exact
-                        component={Base}
-                    />
+                    <Route path="/boss/personal/" exact component={Base} />
                 </Switch>
             </div>
         </div>

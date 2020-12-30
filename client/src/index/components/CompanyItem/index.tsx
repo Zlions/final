@@ -1,30 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./index.scss";
+import comAvatar from "~/assets/comAvatar.jpg";
+import api from "@/api";
 
-const Company = () => {
+interface IProps {
+    com: {
+        describe: "";
+        id: "";
+        addr: "";
+        name: "";
+        finance: "";
+        scope: "";
+        createdAt: "";
+        type: {
+            name: "";
+        };
+    };
+}
+
+const Company = (props: IProps) => {
+    const cid = props.com.id;
+
+    const [posCnt, setPosCnt] = useState(0);
+
+    useEffect(() => {
+        api.getPositionByCid(cid).then((resp) => {
+            setPosCnt(resp.data.data.length);
+        });
+    }, []);
+
     return (
         <div className={style.sub_li}>
-            <a href="/" className={style.company_info}>
-                <img
-                    src="https://img.bosszhipin.com/beijin/mcs/chatphoto/20171118/b841e7655fb1f472005a543d52200789cfcd208495d565ef66e7dff9f98764da.jpg?x-oss-process=image/resize,w_120,limit_0"
-                    alt=""
-                />
+            <a href={`/company_item/${props.com.id}`} className={style.company_info}>
+                <img src={comAvatar} alt="" />
                 <div className={style.company_text}>
-                    <h4>夕阳游戏</h4>
+                    <h4>{props.com.name}</h4>
                     <p>
-                        天使轮
+                        {props.com.finance}
                         <span className="vline"></span>
-                        游戏
+                        {/* {props.com.type.name} */}
                     </p>
                 </div>
             </a>
             <a href="/" className={style.about_info}>
                 <p>
-                    热招
-                    <span className={style.h}>
-                        Javascript
-                    </span>
-                    4-8K
+                    发布
+                    <span className={style.h}>{posCnt}</span>
+                    个职位
                 </p>
             </a>
         </div>

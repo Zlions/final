@@ -4,9 +4,9 @@
     margin: 0 auto;
     height: 100%;
     min-width: 940px;
+    min-height: 584px;
     background: #fff;
-    padding: 0px 10px;
-    overflow-y: scroll;
+    overflow: hidden;
     &::-webkit-scrollbar {
         width: 4px;
         background-color: #f5f5f5;

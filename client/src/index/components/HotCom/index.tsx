@@ -1,28 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./index.scss";
+import comAvatar from "~/assets/comAvatar.jpg";
+import api from "@/api";
 
-const HotCom = () => {
+const HotCom = (props: any) => {
+    const [cnt, setCnt] = useState(0)
+    api.getPositionByCid(props.com.id).then(resp => {
+        setCnt(resp.data.data.length);
+    })
     return (
         <div className={style.sub_li}>
-            <a href="/" className={style.company_info}>
+            <a
+                href={`/company_item/${props.com.id}`}
+                className={style.company_info}
+            >
                 <div className={style.img_box}>
-                    <img
-                        src="https://img.bosszhipin.com/beijin/mcs/bar/20200403/c17014620d6dd3846465a59065ed1b6dbe1bd4a3bd2a63f070bdbdada9aad826.jpg?x-oss-process=image/resize,w_100,limit_0"
-                        alt=""
-                    />
+                    <img src={comAvatar} alt="" />
                 </div>
                 <div className={style.company_text}>
-                    <h4>美图</h4>
+                    <h4>{props.com.name}</h4>
                     <p>
-                        D轮及以上
+                    {props.com.finance}
                         <span className="vline"></span>
-                        移动互联网
+                        {props.com.type.name}
                     </p>
                 </div>
             </a>
             <a href="/" className={style.about_info}>
                 <p>
-                    <span className={style.text_blue}>136</span>个热招职位
+                    <span className={style.text_blue}>{cnt}</span>个热招职位
                 </p>
             </a>
         </div>

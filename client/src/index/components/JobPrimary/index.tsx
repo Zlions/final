@@ -1,24 +1,53 @@
 import React from "react";
 import style from "./index.scss";
 import iconfont from '../../../iconfont.scss';
+import comAvatar from '~/assets/comAvatar.jpg';
 
-const JobPrimary = () => {
+interface IProps {
+    pos: {
+        id: "",
+        name: "";
+        addr: "";
+        city: "";
+        finance: "";
+        experience: "";
+        education: "";
+        describe: "";
+        belongTo: {
+            describe: "";
+            id: "";
+            addr: "";
+            name: "";
+            finance: "";
+            scope: "";
+            createdAt: "";
+            type: {
+                name: "";
+            };
+        };
+    };
+}
+
+const JobPrimary = (props: IProps) => {
+
+
+
     return (
         <div className={style.job_primary}>
             <div className={style.info_primary}>
                 <div className={style.primary_wrapper}>
                     <div className={style.job_title}>
                         <span className={style.job_name}>
-                            <a href="/">JS工程师</a>
+                            <a href={`/job_item/${props.pos.id}`}>{props.pos.name}</a>
                         </span>
-                        <span className={style.job_area}>[深圳·南山区·科技园]</span>
+                        <span className={style.job_area}>[{props.pos.city}]</span>
                     </div>
                     <div className={style.job_limit}>
-                        <span className={style.red}>8-12K</span>
+                        <span className={style.red}>{props.pos.finance}</span>
                         <p>
-                            经验不限
+                            {props.pos.experience}
                             <span className="vline"></span>
-                            本科
+                            {props.pos.education}
                         </p>
                         <div className={style.chat}>
                             <i className={iconfont.iconfont}>&#xe656;</i>
@@ -26,20 +55,23 @@ const JobPrimary = () => {
                         </div>
                     </div>
                 </div>
-                <div className={style.info_company}>
+                <div className={style.info_company} onClick={(e) => {
+                    e.stopPropagation();
+                    location.pathname = `/company_item/${props.pos.belongTo.id}`
+                }}>
                     <div className={style.company_text}>
-                        <h3 className={style.name}>同舟电子</h3>
+                        <h3 className={style.name}>{props.pos.belongTo.name}</h3>
                         <p>
-                            计算机软件
+                            {props.pos.belongTo.type.name}
                             <span className="vline"></span>
-                            已上市
+                            {props.pos.belongTo.finance}
                             <span className="vline"></span>
-                            500-999人
+                            {props.pos.belongTo.scope}
                         </p>
                     </div>
                     <div className={style.company_logo}>
                         <img
-                            src="https://img.bosszhipin.com/beijin/mcs/chatphoto/20160419/6bebb2436268f8c05ba0aca11e8c2dc2821db6793fbdcce50f7e14c3694f0bf8.jpg?x-oss-process=image/resize,w_100,limit_0"
+                            src={comAvatar}
                             alt=""
                         />
                     </div>

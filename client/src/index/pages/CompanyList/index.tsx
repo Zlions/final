@@ -1,10 +1,29 @@
 import style from "./index.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import "antd/lib/pagination/style/index.css";
 import CompanyItem from "@/index/components/CompanyItem";
+import api from "@/api";
 
 const CompanyList: React.FC = () => {
+    const [companys, setCompanys] = useState([] as any);
+
+    useEffect(() => {
+        api.getAllCompanyByCondition({ auditing: false }).then((resp) => {
+            if (!resp.data.err) {
+                let temp = [];
+                for (let i = 0; i < resp.data.data.length; i++) {
+                    temp.push(
+                        <li key={i}>
+                            <CompanyItem com={resp.data.data[i]} />
+                        </li>
+                    );
+                }
+                setCompanys(temp);
+            }
+        });
+    }, []);
+
     return (
         <div className={style.company_home}>
             <div className={style.filter_box}>
@@ -103,11 +122,12 @@ const CompanyList: React.FC = () => {
             </div>
             <div className={style.company_tab_box}>
                 <h4 className={style.company_count}>
-                    共<span>14</span>
+                    共<span>{companys.length}</span>
                     家公司
                 </h4>
                 <ul>
-                    <li>
+                    {companys}
+                    {/* <li>
                         <CompanyItem />
                     </li>
                     <li>
@@ -145,17 +165,17 @@ const CompanyList: React.FC = () => {
                     </li>
                     <li>
                         <CompanyItem />
-                    </li>
+                    </li> */}
                 </ul>
             </div>
-            <div className={style.page}>
+            {/* <div className={style.page}>
                 <Pagination
                     className={`${style.page_panel} pagination_panel`}
                     pageSize={2}
                     defaultCurrent={1}
                     total={2}
                 />
-            </div>
+            </div> */}
         </div>
     );
 };

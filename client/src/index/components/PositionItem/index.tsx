@@ -1,30 +1,55 @@
 import React from "react";
 import style from "./index.scss";
+import avatar from "~/assets/avatar.jpg";
 
-const PositionItem: React.FC = () => {
+interface IProps {
+    pos: {
+        name: "";
+        addr: "";
+        city: "";
+        finance: "";
+        experience: "";
+        education: "";
+        describe: "";
+        belongTo: {
+            describe: "";
+            id: "";
+            addr: "";
+            name: "";
+            finance: "";
+            scope: "";
+            createdAt: "";
+            type: {
+                name: "";
+            };
+        };
+    };
+}
+const PositionItem = (props: IProps) => {
     return (
         <div className={style.job_primary}>
             <div className={style.info_primary}>
                 <h3 className={style.name}>
                     <div className={style.title_box}>
-                        <span className={style.job_title}>HTML5</span>
-                        <span className={style.job_area}>[厦门]</span>
+                        <span className={style.job_title}>
+                            {props.pos.name}
+                        </span>
+                        <span className={style.job_area}>
+                            [{props.pos.city}]
+                        </span>
                     </div>
                 </h3>
                 <p>
-                    <span className={style.red}>8-12K</span>
-                    1-4年
+                    <span className={style.red}>{props.pos.finance}</span>
+                    {props.pos.experience}
                     <span className="vline"></span>
-                    本科
+                    {props.pos.education}
                 </p>
             </div>
             <div className={style.info_publis}>
                 <h3 className={style.pub_name}>
-                    <img
-                        src="https://img.bosszhipin.com/beijin/mcs/useravatar/20170920/e92b26c2615a65b79c2a8250344237558003e215eaab6c8558c0317c1d75788b_s.jpg?x-oss-process=image/resize,w_40,limit_0"
-                        alt=""
-                    />
-                    颜进伟
+                    <img src={avatar} alt="" />
+                    hr1
                     <span className="vline"></span>
                     HR
                 </h3>

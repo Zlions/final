@@ -1,0 +1,53 @@
+.person_item {
+    width: 600px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 5px;
+    float: left;
+    margin: 10px 0px;
+    margin-right: 30px;
+    position: relative;
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 10px;
+    }
+    .name {
+        position: absolute;
+        left: 130px;
+        top: 20px;
+        font-size: 18px;
+        color: #00c2b3;
+        max-width: 195px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .lianxi {
+        position: absolute;
+        left: 130px;
+        top: 60px;
+        font-size: 13px;
+        color: #bdc0c0;
+    }
+    .checkout {
+        position: absolute;
+        left: 370px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #00c2b3;
+        cursor: pointer;
+    }
+    .options {
+        position: absolute;
+        left: 500px;
+        top: 50%;
+        transform: translateY(-50%);
+        span {
+            margin: 0 3px;
+            cursor: pointer;
+            color: #00c2b3;
+        }
+    }
+}

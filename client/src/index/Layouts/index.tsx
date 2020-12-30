@@ -8,8 +8,10 @@ import CompanyList from "../pages/CompanyList";
 import JobDetail from "../pages/JobDetail";
 import CompanyItem from "../pages/CompanyItem";
 import Error from "../pages/404";
+import Personal from "../pages/Personal";
 
 const BasicLayout: React.FC = (props) => {
+
     return (
         <div>
             <div className={style.header}>
@@ -18,9 +20,10 @@ const BasicLayout: React.FC = (props) => {
             <div className={style.content}>
                 <Switch>
                     <Route path="/job_list" exact component={JobList} />
-                    <Route path="/job_item" component={JobDetail} />
+                    <Route path="/job_item/:id" component={JobDetail} />
                     <Route path="/company_list" exact component={CompanyList} />
-                    <Route path="/company_item" component={CompanyItem} />
+                    <Route path="/company_item/:id" component={CompanyItem} />
+                    <Route path="/personal" component={Personal} />
                     <Route path="/" exact component={Index} />
                     <Route path="*" component={Error} />
                 </Switch>

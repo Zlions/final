@@ -1,0 +1,73 @@
+@import '@/globalStyle.scss';
+.page_sign {
+    width: 100%;
+    height: 100%;
+    background-color: #f1f1f1;
+    position: relative;
+    .sign_content {
+        width: 500px;
+        height: 514px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px 3px rgba($color: #000000, $alpha: 0.1);
+        .inner_box {
+            position: relative;
+            width: 324px;
+            padding-top: 28px;
+            margin: 0 auto;
+            color: $common_color;
+            h1 {
+                color: $main_font_color;
+                font-weight: 450;
+                letter-spacing: 10px;
+                text-align: center;
+                margin-left: 0px;
+            }
+            .form {
+                width: 324px;
+                margin: 0 auto;
+                margin-top: 10px;
+                .form_row {
+                    width: 324px;
+                    margin: 25px auto;
+                    input {
+                        width: 324px;
+                        box-sizing: border-box;
+                        border: none;
+                        padding: 9px 20px;
+                        border: 1px solid #e3e7ed;
+                        outline: none;
+                        border-radius: 5px;
+                        &:hover {
+                            border-color: $main_font_color;
+                        }
+                        &::-webkit-input-placeholder {
+                            color: #a5aec0;
+                        }
+                    }
+                }
+                .form_btn {
+                    width: 324px;
+                    margin: 0 auto;
+                    .btn_login {
+                        width: 324px;
+                        font-size: 16px;
+                        height: 42px;
+                        line-height: 42px;
+                        border: none;
+                        cursor: pointer;
+                        background-color: #5dd5c8;
+                        color: #fff;
+                        letter-spacing: 1px;
+                        border-radius: 5px;
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}

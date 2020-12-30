@@ -1,0 +1,73 @@
+.info_container {
+    width: 500px;
+    padding: 30px 38px 21px;
+    box-sizing: border-box;
+    position: relative;
+    padding-right: 0;
+    display: table-cell;
+    line-height: 26px;
+    vertical-align: middle;
+    // margin: 10px 0;
+    .job_title {
+        font-size: 18px;
+        padding: 0;
+        line-height: 26px;
+        color: #00c2b3;
+        position: relative;
+        &.auditing {
+            color: #9fa3b0;
+        }
+        span {
+            font-size: 12px;
+            color: #fff;
+            background-color: #d1d4db;
+            display: inline-block;
+            padding: 0 8px;
+            height: 19px;
+            border-radius: 5px;
+            line-height: 20px;
+            background: #ddd;
+            vertical-align: middle;
+            margin-left: 20px;
+        }
+    }
+    .info_labels {
+        padding: 17px 0 7px;
+        color: #9fa3b0;
+        line-height: 14px;
+    }
+}
+.option_container {
+    padding-right: 15px;
+    padding-left: 15px;
+    white-space: nowrap;
+    text-align: right;
+    display: table-cell;
+    line-height: 26px;
+    vertical-align: middle;
+    a {
+        color: #00c2b3;
+        padding-right: 10px;
+        position: relative;
+        display: inline-block;
+        height: 26px;
+        line-height: 26px;
+        margin-right: 10px;
+    }
+}
+.date_container {
+    cursor: default;
+    color: #d1d4db;
+    width: 140px;
+    line-height: 26px;
+    padding-right: 15px;
+    padding-left: 15px;
+    white-space: nowrap;
+    text-align: right;
+    font-size: 12px;
+    display: table-cell;
+    vertical-align: middle;
+    span {
+        font-size: 12px;
+    }
+}

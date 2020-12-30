@@ -10,27 +10,24 @@ const Personal: React.FC = (props) => {
     return (
         <div className={style.wrapper}>
             <ul className={style.zhiliao}>
-                <li
+                {/* <li
                     className={
                         location.pathname === "/boss/personal/" ? style.cur : ""
                     }
                 >
                     <a href="/boss/personal/">我的资料</a>
-                </li>
-                <li
-                    className={
-                        location.pathname.indexOf('/boss/personal/comPage') === 0
-                            ? style.cur
-                            : ""
-                    }
-                >
-                    <a href="/boss/personal/comPage">公司主页</a>
+                </li> */}
+                <li className={style.cur}>
+                    <a href="/boss/personal">公司主页</a>
                 </li>
             </ul>
-            <Switch>
-                <Route path="/boss/personal/comPage" component={CompanyPage} />
-                <Route path="/boss/personal/" exact component={MyDatas} />
-            </Switch>
+            <CompanyPage />
+
+            
+            {/* <Switch> */}
+            {/* <Route path="/boss/personal/comPage" component={CompanyPage} /> */}
+            {/* <Route path="/boss/personal/" exact component={MyDatas} /> */}
+            {/* </Switch> */}
         </div>
     );
 };

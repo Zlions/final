@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./index.scss";
-import Avatar from '~/assets/manDefaultAvatar.jpg'
+import Avatar from '~/assets/avatar.jpg'
 
 const MyDatas: React.FC = () => {
     return (

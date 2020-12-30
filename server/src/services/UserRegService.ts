@@ -29,16 +29,38 @@ export class UserRegService extends BaseServices {
 		if (validation.length === 0) {
 			await encryption(user);
 			// 查看该邮箱是否已被注册
-			const result = await userRepository.find({
+			let result = await userRepository.find({
 				where: { email: user.email },
 			});
-			if (result.length === 0) {
-				validationResult.data = user;
+			if (result.length !== 0) {
+				validationResult.err = "该邮箱已被注册";
+				validationResult.result = false;
 				return validationResult;
-			}
-			validationResult.err = "该邮箱已被注册";
-			validationResult.result = false;
+			} 
+
+			result = await userRepository.find({
+				where: { phone: user.phone },
+			});
+
+			if (result.length !== 0) {
+				validationResult.err = "该电话号码已被注册";
+				validationResult.result = false;
+				return validationResult;
+			} 
+
+			result = await userRepository.find({
+				where: { name: user.name },
+			});
+
+			if (result.length !== 0) {
+				validationResult.err = "该用户名已被注册";
+				validationResult.result = false;
+				return validationResult;
+			} 
+
+			validationResult.data = user;
 			return validationResult;
+			
 		}
 		validationResult.err = validation;
 		validationResult.result = false;
@@ -47,12 +69,14 @@ export class UserRegService extends BaseServices {
 
 	// 登陆
 	public login = async (req: Request, res: Response) => {
-		const userIdentity = req.query.userIdentity as string;
-		const pwd = req.query.pwd as string;
+		const userIdentity = req.body.userIdentity as string;
+		const pwd = req.body.pwd as string;
+
 
 		let user = await (this.repository as Repository<UserReg>).findOne({
 			name: userIdentity,
 		});
+
 
 		if (!user) {
 			user = await (this.repository as Repository<UserReg>).findOne({
@@ -75,7 +99,7 @@ export class UserRegService extends BaseServices {
 		const result = await user.compare(pwd);
 
 		if (result) {
-			res.send(msg(user.uid));
+			res.send(msg(user));
 			return;
 		}
 
@@ -84,13 +108,21 @@ export class UserRegService extends BaseServices {
 
 	// 重置密码
 	public resetPwd = async (req: Request, res: Response) => {
-		const id = req.query.userIdentity as string;
+		console.log(req)
+		const email = req.body.email as string;
+		const id = req.body.id as string;
+		const result = await (this.repository as Repository<UserReg>).find({
+			where: {email, id}
+		})
+		if(result.length === 0) {
+			res.send(msg(null, '邮箱输入错误，请重试'));
+			return;
+		}
 		try {
-			await encryption(req.query);
-			console.log(req.query)
+			await encryption(req.body);
 			await (this.repository as Repository<UserReg>).update(
-				{uid: id},
-				{pwdHash: req.query.pwdHash as string}
+				{id},
+				{pwdHash: req.body.pwdHash as string}
 			);
 			res.send(msg(true));
 		} catch (error) {

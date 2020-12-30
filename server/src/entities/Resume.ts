@@ -23,10 +23,24 @@ export class Resume {
 	public name: string;
 
 	@Column()
+	@IsNotEmpty({ message: "求职状态不允许为空" })
+	@IsString({ message: "求职状态必须是字符串" })
+	@Type(() => String)
+	public jobState: string;
+
+	@Column()
 	@IsBoolean({ message: "性别必须是boolean类型" })
 	@IsNotEmpty({ message: "性别不允许为空" })
 	@Type(() => Boolean)
 	public sex: boolean;
+
+	@Column()
+	@Type(() => String)
+	public birth: string;
+
+	@Column()
+	@Type(() => String)
+	public wechat: string;
 
 	@Column()
 	@Length(11, 11)
@@ -36,54 +50,38 @@ export class Resume {
 	public phone: string = ""; // 11位数的手机号码
 
 	@Column()
-	@IsString({ message: "地址必须是字符串类型" })
-	@Type(() => String)
-	public addr: string = "";
-
-	@Column()
 	@IsEmail()
 	@IsOptional()
 	@Type(() => String)
 	public email: string;
 
 	@Column()
-	@IsNotEmpty({message: '学历不允许为空'})
-	@IsString({message:'学历必须是字符串类型'})
+	@IsString({message:'意向职位必须字符串类型'})
 	@Type(() => String)
-	public education: string;
+	public wantedJob: string;
 
 	@Column()
-	@IsString({message:'学历必须是字符串类型'})
+	@IsString({message:'专业必须是字符串类型'})
 	@Type(() => String)
 	public major: string = '';
 
 	@Column()
-	@IsString({message:'学历必须是字符串类型'})
+	@IsString({message:'毕业院校必须是字符串类型'})
 	@Type(() => String)
 	public school: string = '';
 
 	@Column()
-	@IsString({message:'学历必须是字符串类型'})
+	@IsString({message:'毕业年份必须是字符串类型'})
 	@Type(() => String)
-	public beforeSchool: string = '';
+	public eduYear: string = '';
 
-	@Column()
-	@IsString({message:'学历必须是字符串类型'})
+	@Column("text")
+	@IsString({message:'个人优势必须是字符串类型'})
 	@Type(() => String)
-	public afterSchool: string = '';
+	public godness: string = '';
 
-	@Column()
-	@IsString({message:'学历必须是字符串类型'})
-	@Type(() => String)
-	public expectSalary: string = '';
-
-	@Column()
-	@IsString({message:'学历必须是字符串类型'})
-	@Type(() => String)
-	public certificate: string = '';
-
-	@OneToOne(type => UserReg, {
-		eager: true
+	@OneToOne(type => UserReg, user => user.resume,  {
+		cascade: true
 	})
 	@JoinColumn()
 	public belongTo: UserReg;

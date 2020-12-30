@@ -1,32 +1,32 @@
-import { Application } from "express";
+import express, { Application } from "express";
 import { CompanyServices } from "../services/CompanyServices";
 
 export class CompanyController {
-	public companyServices: CompanyServices;
-	constructor(private app: Application) {
-		this.companyServices = new CompanyServices();
-		this.routes();
-	}
+    public companyServices: CompanyServices;
+    private router: express.Router = express.Router();
+    constructor(private app: Application) {
+        this.companyServices = new CompanyServices();
+        this.app.use("/api", this.routes());
+    }
 
-	private routes() {
-		// 获取同一种类型的所有公司
-		this.app
-			.route("/company/getCompanyByTypeId")
-			.get(this.companyServices.getCompanyByTypeId);
+    private routes() {
+        // 获取同一种类型的所有公司
+        this.router.get("/company/getCompanyByTypeId", this.companyServices.getCompanyByTypeId);
 
-		// 增删改查
-		this.app.route("/company/:id").get(this.companyServices.getRecordById);
-		this.app.route("/company").get(this.companyServices.getRecords);
+        // 增删改查
+        this.router.get("/company/:id", this.companyServices.getRecordById);
+        this.router.get("/company", this.companyServices.getRecords);
 
-		this.app
-			.route("/company")
-			.delete(this.companyServices.deleteRecordById);
+        this.router.delete("/company", this.companyServices.deleteRecordById);
 
-		this.app.route("/company").put(this.companyServices.updateRecord);
-		this.app.route("/company").post(this.companyServices.saveRecord);
+        this.router.put("/company", this.companyServices.updateRecord);
+        this.router.post("/company", this.companyServices.saveRecord);
 
-		// 登陆、重置密码
-		this.app.route("/company/login").post(this.companyServices.login);
-		this.app.route("/company/resetPwd").post(this.companyServices.resetPwd);
-	}
+		// 用userId查找公司
+		this.router.post('/company/getCompanyByUid', this.companyServices.getCompanyByUid);
+        
+        // 查询公司
+        this.router.post('/company/condition', this.companyServices.getCompanyByCondition)
+		return this.router;
+    }
 }

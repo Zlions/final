@@ -1,10 +1,43 @@
 import style from "./index.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route } from "react-router";
 import CompanySummarize from "./CompanySummarize";
 import CompanyPosition from "./CompanyPosition";
+import api from "@/api";
 
-const CompanyItem: React.FC = props => {
+const CompanyItem = (props: any) => {
+    const cid = props.match.params.id;
+    const [curCom, setCurCom] = useState({
+        describe: "",
+        id: "",
+        addr: "",
+        name: "",
+        finance: "",
+        scope: "",
+        createdAt: "",
+        type: {
+            name: "",
+        },
+    });
+
+    const [positionCnt, setPositionCnt] = useState(0)
+
+    // 多少在招职位
+    useEffect(() => {
+        api.getPositionByCid(cid).then(resp => {
+            if(!resp.data.err) {
+                setPositionCnt(resp.data.data.length);
+            }
+        })
+    }, [])
+
+    useEffect(() => {
+        api.getCompanyById(cid).then(resp => {
+            if(!resp.data.err) {
+                setCurCom(resp.data.data)
+            }
+        })
+    }, [])
     return (
         <>
             <div className={style.company_banner}>
@@ -16,37 +49,61 @@ const CompanyItem: React.FC = props => {
                                 alt=""
                             />
                             <div className={style.info}>
-                                <h1 className={style.name}>夕阳游戏</h1>
+                                <h1 className={style.name}>{curCom.name}</h1>
                                 <p>
-                                    天使轮
+                                {curCom.finance}
                                     <span className="dolt"></span>
-                                    0-20人
+                                    {curCom.scope}
                                     <span className="dolt"></span>
-                                    游戏
+                                    {curCom.type.name}
                                 </p>
                             </div>
                         </div>
                         <div className={style.company_start}>
                             <span>
-                                <b>4</b>
+                                <b>{positionCnt}</b>
                                 在招职位
                             </span>
-                            <span className={style.pad}>
+                            {/* <span className={style.pad}>
                                 <b>2</b>
                                 位BOSS
-                            </span>
+                            </span> */}
                         </div>
                     </div>
                     <div className={style.company_tab}>
-                        <a href="/company_item/" className={location.pathname === '/company_item/' ? style.cur : ''}>
+                        <a
+                        href={`/company_item/${curCom.id}/`}
+                            className={
+                                location.pathname === `/company_item/${curCom.id}/`
+                                    ? style.cur
+                                    : ""
+                            }
+                        >
                             公司简介
                         </a>
-                        <a href="/company_item/islooking" className={location.pathname === '/company_item/islooking' ? style.cur : ''}>招聘职位(4)</a>
+                        <a
+                            href={`/company_item/${cid}/islooking`}
+                            className={
+                                location.pathname === `/company_item/${cid}/islooking`
+                                    ? style.cur
+                                    : ""
+                            }
+                        >
+                            招聘职位({positionCnt})
+                        </a>
                     </div>
                 </div>
             </div>
-            <Route path="/company_item/islooking" exact component={CompanyPosition}></Route>
-            <Route path="/company_item/" exact component={CompanySummarize}></Route>
+            <Route
+                path={`/company_item/:id/islooking`}
+                exact
+                component={CompanyPosition}
+            ></Route>
+            <Route
+                path={`/company_item/:id/`}
+                exact
+                component={CompanySummarize}
+            ></Route>
         </>
     );
 };

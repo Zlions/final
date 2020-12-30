@@ -27,41 +27,30 @@
             line-height: 53px;
             color: #434343;
             position: relative;
+            .switch {
+                font-size: 13px;
+                cursor: pointer;
+                color: #ee6340;
+            }
             img {
                 width: 25px;
                 height: 25px;
                 border-radius: 50%;
                 margin-left: 15px;
+                vertical-align: text-bottom;
             }
             .info_name {
                 font-size: 16px;
                 font-weight: 400;
                 margin-left: 15px;
-                vertical-align: middle;
-            }
-            i {
-                display: inline-block;
-                vertical-align: middle;
-                color: #000;
-                padding-top: 3px;
-                font-size: 16px;
-                cursor: pointer;
-            }
-            .have_msg {
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                background-color: red;
-                position: absolute;
-                top: 21px;
-                left: 10px;
             }
         }
     }
 }
 .content {
     width: 100%;
-    height: calc(100% - 53px);
+    height: calc(100vh - 53px);
+    min-height: 614px;
     min-width: 1180px;
     @include clearFloat;
     .side_menu {
@@ -124,11 +113,11 @@
         width: calc(100% - 160px);
         min-width: 1020px;
         float: left;
-        height: 100%;
+        height: 99%;
+        overflow: scroll;
         background-color: #eef0f5;
         padding: 20px 30px;
         box-sizing: border-box;
-        overflow: scroll;
         &::-webkit-scrollbar {
             width: 3px;
         }

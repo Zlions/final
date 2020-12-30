@@ -5,6 +5,9 @@ module.exports = {
         index: './src/index',
         login: './src/Login',
         register: './src/Register',
+        companyRegister: './src/CompanyRegister',
+        admin: './src/Admin',
+        resetPsd: './src/ResetPsd'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -94,6 +97,21 @@ module.exports = {
             template: './public/index.html',
             filename: 'register.html',
             chunks: ['register']
+        }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            filename: 'company_reg.html',
+            chunks: ['companyRegister']
+        }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            filename: 'admin.html',
+            chunks: ['admin']
+        }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            filename: 'resetPsd.html',
+            chunks: ['resetPsd']
         }),
     ]
 }

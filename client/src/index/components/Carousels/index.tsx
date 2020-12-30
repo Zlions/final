@@ -1,9 +1,10 @@
-import { Carousel } from 'antd';
+import { Carousel } from "antd";
 import "antd/lib/carousel/style/index.css";
 import React, { CSSProperties } from "react";
+import ad from "~/assets/ad.png";
 
 const contentStyle: CSSProperties = {
-    height: "160px",
+    height: "360px",
     color: "#fff",
     lineHeight: "160px",
     textAlign: "center",
@@ -14,16 +15,17 @@ const Carousels = () => {
     return (
         <Carousel autoplay>
             <div>
-                <h3 style={contentStyle}>1</h3>
+                {/* <h3 style={contentStyle}>1</h3> */}
+                <img style={{ width: "100%", height: 300 }} src={ad} alt="" />
             </div>
             <div>
-                <h3 style={contentStyle}>2</h3>
+                <img style={{ width: "100%", height: 300 }} src={ad} alt="" />
             </div>
             <div>
-                <h3 style={contentStyle}>3</h3>
+                <img style={{ width: "100%", height: 300 }} src={ad} alt="" />
             </div>
             <div>
-                <h3 style={contentStyle}>4</h3>
+                <img style={{ width: "100%", height: 300 }} src={ad} alt="" />
             </div>
         </Carousel>
     );

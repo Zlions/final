@@ -20,10 +20,10 @@ export abstract class BaseServices {
 
 	// 通过id获取记录
 	public getRecordById = async (req: Request, res: Response) => {
-		const id = req.params.id;
+		const id = req.query.id;
 
 		try {
-			const result = await this.repository.findOne(id);
+			const result = await this.repository.findOne(id as string);
 			res.send(msg(result));
 		} catch (error) {
 			res.send(msg(null, error));
@@ -49,17 +49,17 @@ export abstract class BaseServices {
 
 	// 保存新纪录
 	public saveRecord = async (req: Request, res: Response) => {
-		const newRecord = req.query;
+		const newRecord = req.body;
 		const validationResult: IValidationResult = await this.recordValidationRule(
 			newRecord
 		);
-
+			// console.log(validationResult)
 		if (validationResult.result) {
 			const newUser = this.repository.create(validationResult.data);
 			this.repository
 				.save(newUser)
 				.then((resp) => {
-					res.send(msg(validationResult.data));
+					res.send(msg(resp));
 				})
 				.catch((err) => {
 					res.send(msg(null, err));
@@ -71,23 +71,14 @@ export abstract class BaseServices {
 
 	// 更新记录
 	public updateRecord = async (req: Request, res: Response) => {
-		const id: number = parseInt(req.query.id as string, 10);
-		const record = await this.repository.findOne(id);
-		if (!record) {
-			res.send(msg(null, '未找到该用户'))
+		const {id, ...record} = req.body.newRecord;
+		const hasRecord = await this.repository.findOne(id);
+		if (!hasRecord) {
+			res.send(msg(null, '未找到该记录'))
 			return;
 		}
-		// 定义变量，获取参数中所有改变后的键值对
-		const temp = {};
-		for (const key in req.query) {
-			if (Object.prototype.hasOwnProperty.call(req.query, key)) {
-				if (key === "id") continue;
-				temp[key] = req.query[key];
-			}
-		}
-
 		try {
-			await this.repository.update(id, temp);
+			await this.repository.update(id, record);
 			const newRecord = await this.repository.findOne(id);
 			// 返回更新后的记录
 			res.send(msg(newRecord));
