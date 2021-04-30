@@ -2,12 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 module.exports = {
     entry: {
-        index: './src/index',
-        login: './src/Login',
-        register: './src/Register',
-        companyRegister: './src/CompanyRegister',
-        admin: './src/Admin',
-        resetPsd: './src/ResetPsd'
+        index: './src/pages/index',
+        login: './src/pages/Login',
+        register: './src/pages/Register',
+        companyRegister: './src/pages/CompanyRegister',
+        admin: './src/pages/Admin',
+        resetPsd: './src/pages/ResetPsd'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
